@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule} from '@angular/common/http';
 
 import { HomeModule } from './site/home/home.module';
 import { PronosticsModule } from './site/pronostics/pronostics.module';
@@ -20,11 +21,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LOCALE_ID } from '@angular/core';
 import fr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+
+import { JoueurService } from './services/joueurs/joueur.service';
+import { ListejoueursModule } from './site/listejoueurs/ListejoueursModule';
 registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     MaterialModule,
@@ -34,14 +38,19 @@ registerLocaleData(fr);
     MatDialogModule,
     HomeModule,
     PronosticsModule,
+    ListejoueursModule,
     ResultatsModule,
     AdminModule,
-    ErrorsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ErrorsModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "fr-CA"}],
+  providers: [
+    {provide: LOCALE_ID, useValue: "fr-CA"},
+    JoueurService
+],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
