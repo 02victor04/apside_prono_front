@@ -29,10 +29,10 @@
                         <td>{{joueur.subscriptionDate | date:'shortDate'}}</td>
                         <td>{{joueur.mail}}</td>
                         <td><button class="col" mat-button
-                          style="float:right;background-color: rgb(29, 201, 201)">Modifier</button></td>
+                          style="float:right;background-color: rgb(29, 201, 201)" >Modifier</button></td>
                           <td><button class="col" mat-button
-                            style="float:right;background-color: rgb(201, 29, 29)" >Supprimer</button></td>
-                            <!-- (click)="deletePlayerById(id)" -->
+                            style="float:right;background-color: rgb(201, 29, 29)" (click)="deletePlayerById(joueur.id)">Supprimer</button></td>
+                            
                           
                         <td></td>
                   

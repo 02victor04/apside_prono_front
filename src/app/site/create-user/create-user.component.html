@@ -1,6 +1,16 @@
+<h6 style="color: white"><a routerLink="/">Home</a> > Joueurs</h6>
 <br>
 <br>
-
+<div class="container" style="margin-top: 30px">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col-sm-8">
+          <mat-card class="entete" style="background-color: darkslategray">
+              <mat-card-header>
+                  <h6>Création d'un joueur</h6>
+                  
+              </mat-card-header>
 <div class="row">
   <form class="col s12" [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="row">
@@ -31,7 +41,7 @@
 
     </div>
 <br>
-    <input type="submit" value="Envoyer" class="waves-effect waves-light btn" />
+    
     <button type="submit">Valider</button>
 
   </form>

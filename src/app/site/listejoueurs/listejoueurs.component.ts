@@ -12,7 +12,7 @@ export class ListejoueursComponent implements OnInit {
 
   listejoueurs: Joueurs[];
   selectedJoueur: Joueurs;
-
+ 
   constructor(private router: Router, private joueurService: JoueurService) { }
 
   ngOnInit() {
@@ -21,22 +21,24 @@ export class ListejoueursComponent implements OnInit {
     this.joueurService.getAllPlayer()
       .subscribe(
         data => this.listejoueurs = data)
-
   }
 
-  selectJoueur(joueur: Joueurs) {
+   selectJoueur(joueur: Joueurs) {
     this.selectedJoueur = joueur;
     let link = ['/listejoueurs', joueur.id];
     this.router.navigate(link);
   }
 
-  // deletePlayerById(id: Joueurs){
-  //   this.deletePlayerById = joueur;
-  //   let link = ['/listejoueurs', joueur.id];
-  //   this.router.navigate(link);
+  deletePlayerById(id: number){
+    this.joueurService.deletePlayerById(id).subscribe(
+      value => {this.joueurService.getAllPlayer().subscribe(
+        listejoueursNew=> this.listejoueurs = listejoueursNew);
+      })
+    }
 
-  // }
+  
+
+  }
+  
  
   
-  
-}

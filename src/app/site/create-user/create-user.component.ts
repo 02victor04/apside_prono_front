@@ -42,8 +42,10 @@ onSubmit() {
   console.log("lastName : " + this.lastName.value);
   console.log("mail : " + this.mail.value);
 
-  let player = new Joueurs(null, this.firstName.value, this.lastName.value,
+  let player = new Joueurs( this.firstName.value, this.lastName.value,
     new Date(), this.mail.value);
+
+    console.log(player)
 
   this.joueurService.createPlayer(player)
     .subscribe(
