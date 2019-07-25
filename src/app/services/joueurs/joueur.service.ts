@@ -26,4 +26,15 @@ export class JoueurService {
     return this.http.get<Joueurs>(`${this.baseURL}/player/${id}`,this.httpOptions);
   }
 
+  createPlayer(player: Joueurs): Observable<Joueurs> {
+    return this.http.post<Joueurs>(`${this.baseURL}/player`, player, this.httpOptions);
+  }
+
+  modifyPlayer(id: number): Observable<Joueurs> {
+    return this.http.put<Joueurs>(`${this.baseURL}/player/${id}`, this.httpOptions);
+  }
+
+  deletePlayerById(id: number): Observable<Joueurs> {
+    return this.http.delete<Joueurs>(`${this.baseURL}/player/${id}`, this.httpOptions);
+  }
 }

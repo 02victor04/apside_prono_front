@@ -24,11 +24,15 @@ import { registerLocaleData } from '@angular/common';
 
 import { JoueurService } from './services/joueurs/joueur.service';
 import { ListejoueursModule } from './site/listejoueurs/ListejoueursModule';
+import { CreateUserModule } from './site/create-user/create-user.module';
+
 registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
     ConfirmDialogComponent
+    
+   
   ],
   imports: [
     MaterialModule,
@@ -39,6 +43,7 @@ registerLocaleData(fr);
     HomeModule,
     PronosticsModule,
     ListejoueursModule,
+    CreateUserModule,
     ResultatsModule,
     AdminModule,
     HttpClientModule,

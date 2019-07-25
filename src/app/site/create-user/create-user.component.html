@@ -1,0 +1,42 @@
+<br>
+<br>
+
+<div class="row">
+  <form class="col s12" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+
+      <div class="input-field col s6">
+        <input id="firstName" type="text" name="firstName" [formControl]="firstName" />
+        <label for="firstName">Prénom</label>
+        <div *ngIf="firstName.dirty && !firstName.valid">
+          <p *ngIf="firstName.errors.required">Le Prénom est obligatoire</p>
+        </div>
+      </div>
+
+      <div class="input-field col s6">
+        <input id="lastName" type="text" name="lastName" [formControl]="lastName" />
+        <label for="lastName">Nom</label>
+        <div *ngIf="lastName.dirty && !lastName.valid">
+          <p *ngIf="lastName.errors.required">Le Nom est obligatoire</p>
+        </div>
+      </div>
+
+      <div class="input-field col s6">
+        <input id="mail" type="text" name="mail" [formControl]="mail" />
+        <label for="mail">Email </label>
+        <div *ngIf="mail.dirty && !mail.valid">
+          <p *ngIf="mail.errors.required">Le mail est obligatoire</p>
+        </div>
+      </div>
+
+    </div>
+<br>
+    <input type="submit" value="Envoyer" class="waves-effect waves-light btn" />
+    <button type="submit">Valider</button>
+
+  </form>
+</div> 
+
+
+
+ 

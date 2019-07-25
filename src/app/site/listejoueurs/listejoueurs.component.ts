@@ -30,4 +30,13 @@ export class ListejoueursComponent implements OnInit {
     this.router.navigate(link);
   }
 
+  // deletePlayerById(id: Joueurs){
+  //   this.deletePlayerById = joueur;
+  //   let link = ['/listejoueurs', joueur.id];
+  //   this.router.navigate(link);
+
+  // }
+ 
+  
+  
 }
