@@ -26,11 +26,24 @@ import { JoueurService } from './services/joueurs/joueur.service';
 import { ListejoueursModule } from './site/listejoueurs/ListejoueursModule';
 import { CreateUserModule } from './site/create-user/create-user.module';
 
+import { EventModule } from './site/event/event.module';
+import { EventService } from './services/event.service';
+import { CreateEventModule } from './site/create-event/create-event.module';
+
+
+import { ContestModule } from './site/contest/contest.module';
+import { ContestService } from './services/contest.service';
+import { CreateContestModule } from './site/create-contest/create-contest.module';
+import { DetailjoueurModule } from './site/detailjoueur/detailjoueur.module';
+
+
 registerLocaleData(fr);
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+   
+       
     
    
   ],
@@ -44,6 +57,11 @@ registerLocaleData(fr);
     PronosticsModule,
     ListejoueursModule,
     CreateUserModule,
+    EventModule,
+    CreateEventModule,
+    ContestModule,
+    CreateContestModule,
+    DetailjoueurModule,
     ResultatsModule,
     AdminModule,
     HttpClientModule,
@@ -54,7 +72,9 @@ registerLocaleData(fr);
   ],
   providers: [
     {provide: LOCALE_ID, useValue: "fr-CA"},
-    JoueurService
+    JoueurService,
+    EventService,
+    ContestService,
 ],
   entryComponents: [ConfirmDialogComponent],
   bootstrap: [AppComponent]

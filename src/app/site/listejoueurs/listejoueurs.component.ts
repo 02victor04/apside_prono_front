@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Joueurs } from '../../Models/joueur';
 import { JoueurService } from '../../services/joueurs/joueur.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listejoueurs',
@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./listejoueurs.component.sass']
 })
 export class ListejoueursComponent implements OnInit {
-
+  // @Input() joueur: Joueurs;
   listejoueurs: Joueurs[];
   selectedJoueur: Joueurs;
+  joueur: Joueurs;
+  
  
   constructor(private router: Router, private joueurService: JoueurService) { }
+  
 
   ngOnInit() {
 
@@ -21,6 +24,8 @@ export class ListejoueursComponent implements OnInit {
     this.joueurService.getAllPlayer()
       .subscribe(
         data => this.listejoueurs = data)
+
+      
   }
 
    selectJoueur(joueur: Joueurs) {
@@ -36,9 +41,25 @@ export class ListejoueursComponent implements OnInit {
       })
     }
 
-  
+    getPlayerById(id: number){
+      this.joueurService.getPlayerById(id).subscribe(
+        data => this.selectedJoueur = data)
+    }
 
-  }
+    modifyPlayer(id: number){
+      this.joueurService.modifyPlayer(id).subscribe(
+        value=> {this.joueurService.getPlayerById(id).subscribe(data => this.joueur = data);
+        })
+
+      }
+    }
+
+    // this.route.paramMap.subscribe(param => {
+    //   let id = parseInt(param.get('id'));
+    //   this.joueurService.getPlayerById(id).subscribe(data => this.joueur = data);
+    // });
+
+  
   
  
   

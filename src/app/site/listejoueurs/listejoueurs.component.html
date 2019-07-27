@@ -23,13 +23,13 @@
                       </tr>
                   </thead>
                     <tbody>
-                      <tr *ngFor='let joueur of listejoueurs'>
+                      <tr *ngFor='let joueur of listejoueurs' >
                         <td>{{joueur.firstName}}</td>
                         <td>{{joueur.lastName}}</td>
                         <td>{{joueur.subscriptionDate | date:'shortDate'}}</td>
                         <td>{{joueur.mail}}</td>
-                        <td><button class="col" mat-button
-                          style="float:right;background-color: rgb(29, 201, 201)" >Modifier</button></td>
+                        <td><button class="col" mat-button 
+                          style="float:right;background-color: rgb(29, 201, 201)" [class.select]="joueur === selectedJoueur" (click)="selectJoueur(joueur)" (click)="getPlayerById(joueur.id)">Modifier</button></td>
                           <td><button class="col" mat-button
                             style="float:right;background-color: rgb(201, 29, 29)" (click)="deletePlayerById(joueur.id)">Supprimer</button></td>
                             
